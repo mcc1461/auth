@@ -1,15 +1,13 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const dotenv = require("dotenv");
-
+dotenv.config();
 const dbConnection = require("./config/dbConnection");
 const userRoutes = require("./routes/userRoutes");
 
-dotenv.config();
-
 // Connect to MongoDB
 dbConnection();
-const app = express();
 
 // Middleware
 app.use(express.json());
@@ -22,13 +20,13 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRoutes);
 
-const PORT = process.env.PORT || 8002;
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong", error: err.message });
 });
+
+const PORT = process.env.PORT || 8002;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

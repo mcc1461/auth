@@ -6,50 +6,73 @@ function Register() {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const newUser = {
-      username, // Use 'username' to match the backend schema
-      email,
-      password,
-    };
+
+    const newUser = { username, email, password };
+
+    if (!username || !email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+    if (username.length < 3 || username.length > 20) {
+      setError("Username must be between 3 and 20 characters long");
+      return;
+    }
+    if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    if (password.length < 6 || password.length > 20) {
+      setError(
+        `Password must be at least 6 characters long and must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.`
+      );
+      return;
+    }
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8002/api/users/register",
-        newUser
-      );
-      console.log(response.data);
+      setError(""); // Clear any previous errors
+      await axios.post("http://127.0.0.1:8002/api/users/register", newUser);
       alert("User registered successfully!");
-
       setName("");
       setEmail("");
       setPassword("");
     } catch (error) {
       console.error("There was an error registering the user!", error);
-      alert("Error registering user. Please try again.");
+      setError(
+        error.response?.data?.message ||
+          "Error registering user. Please try again."
+      );
     }
   };
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row">
-        <div className="col-md-6 mt-5 mx-auto">
-          <form noValidate onSubmit={onSubmit}>
-            <h1 className="h3 mb-3 fw-bold text-primary">Register</h1>
-            <div className="form-group">
+        <div className="col-md-6 mx-auto">
+          <form
+            noValidate
+            onSubmit={onSubmit}
+            className="p-4 border rounded bg-light"
+          >
+            <h1 className="h3 mb-3 fw-bold text-primary text-center">
+              Register
+            </h1>
+            {error && <div className="alert alert-danger">{error}</div>}
+            <div className="form-group mb-3">
               <label htmlFor="username">Username</label>
               <input
                 type="text"
                 className="form-control"
-                name="name"
+                name="username"
                 placeholder="Enter your name"
                 value={username}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <label htmlFor="email">Email address</label>
               <input
                 type="email"
@@ -60,7 +83,7 @@ function Register() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -71,14 +94,11 @@ function Register() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button
-              type="submit"
-              className="btn btn-md btn-primary btn-block mt-2"
-            >
+            <button className="btn btn-primary w-100" type="submit">
               Register!
             </button>
-            <p className="forgot-password text-right">
-              Already registered then <Link to="/login">login now!</Link>
+            <p className="forgot-password text-center mt-3">
+              Already registered? <Link to="/login">Login now!</Link>
             </p>
           </form>
         </div>

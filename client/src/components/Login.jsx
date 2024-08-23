@@ -1,30 +1,45 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login({ handleLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const user = {
-      email,
-      password,
-    };
+    const user = { email, password };
 
-    console.log(user);
-
-    setEmail("");
-    setPassword("");
+    try {
+      await axios.post("http://127.0.0.1:8002/api/users/login", user);
+      handleLogin();
+      setEmail("");
+      setPassword("");
+      setError("");
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("There was an error logging in!", error);
+      setError(
+        error.response?.data?.message || "Error logging in. Please try again."
+      );
+    }
   };
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row">
-        <div className="col-md-6 mt-5 mx-auto">
-          <form noValidate onSubmit={onSubmit}>
-            <h1 className="h3 mb-3 fw-bold text-primary">Login</h1>
-            <div className="form-group">
+        <div className="col-md-6 mx-auto">
+          <form
+            noValidate
+            onSubmit={onSubmit}
+            className="p-4 border rounded bg-light"
+          >
+            <h1 className="h3 mb-3 fw-bold text-primary text-center">Login</h1>
+            {error && <div className="alert alert-danger">{error}</div>}
+            <div className="form-group mb-3">
               <label htmlFor="email">Email address</label>
               <input
                 type="email"
@@ -35,7 +50,7 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -46,16 +61,11 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button
-              className="btn btn-md btn-primary btn-block mt-2"
-              type="submit"
-            >
+            <button className="btn btn-primary w-100" type="submit">
               Login
             </button>
-
-            <p className="forgot-password text-right">
-              Not registered before then{" "}
-              <Link to="/register">register now!</Link>
+            <p className="forgot-password text-center mt-3">
+              Not registered before? <Link to="/register">Register now!</Link>
             </p>
           </form>
         </div>
