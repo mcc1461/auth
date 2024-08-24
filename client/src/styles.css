@@ -1,0 +1,19 @@
+/* index.css  */
+body {
+  font-family: "CustomFont", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold-italic {
+  font-weight: bold;
+  font-style: italic;
+}
