@@ -29,6 +29,11 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 8002;
 const HOST = process.env.HOST || "http://127.0.0.1";
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on ${HOST}:${PORT}`);
 });

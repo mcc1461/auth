@@ -9,7 +9,7 @@ const Dashboard = ({ welcomeMessage }) => {
           src={MusCo}
           alt="MusCo Logo"
           className="img-fluid rounded-4"
-          style={{ maxWidth: "80%", height: "auto", marginTop: "10%" }}
+          style={{ maxWidth: "50%", height: "auto", marginTop: "10%" }}
         />
       </div>
       <h1

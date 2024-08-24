@@ -7,6 +7,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(""); // New state for success message
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -15,36 +16,48 @@ function Register() {
 
     if (!username || !email || !password) {
       setError("Please fill in all fields");
+      setSuccess(""); // Clear success message on error
       return;
     }
     if (username.length < 3 || username.length > 20) {
       setError("Username must be between 3 and 20 characters long");
+      setSuccess(""); // Clear success message on error
       return;
     }
     if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
       setError("Please enter a valid email address.");
+      setSuccess(""); // Clear success message on error
       return;
     }
-    if (password.length < 6 || password.length > 20) {
+    if (
+      password.length < 6 ||
+      password.length > 20 ||
+      !/[A-Z]/.test(password) ||
+      !/[a-z]/.test(password) ||
+      !/[0-9]/.test(password) ||
+      !/[!@#$%^&*]/.test(password)
+    ) {
       setError(
-        `Password must be at least 6 characters long and must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.`
+        `Password must be at least 6 characters long and must contain at least one uppercase letter, one lowercase letter, one digit, and one special character (!@#$%^&*).`
       );
+      setSuccess(""); // Clear success message on error
       return;
     }
 
     try {
       setError(""); // Clear any previous errors
       await axios.post("http://127.0.0.1:8002/api/users/register", newUser);
-      alert("User registered successfully!");
+
+      setSuccess(`"${username}" registered successfully!`); // Set success message
       setName("");
       setEmail("");
       setPassword("");
     } catch (error) {
-      console.error("There was an error registering the user!", error);
       setError(
         error.response?.data?.message ||
           "Error registering user. Please try again."
       );
+      setSuccess(""); // Clear success message on error
     }
   };
 
@@ -61,6 +74,10 @@ function Register() {
               Register
             </h1>
             {error && <div className="alert alert-danger">{error}</div>}
+            {success && (
+              <div className="alert alert-success">{success}</div>
+            )}{" "}
+            {/* Success message */}
             <div className="form-group mb-3">
               <label htmlFor="username">Username</label>
               <input

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = ({ isLoggedIn }) => {
   return (
@@ -18,19 +19,27 @@ const Home = ({ isLoggedIn }) => {
         </h1>
         <br />
         <br />
-        <h2>Welcome to MusCo - Mustering Code</h2>
+        <h1>Welcome to MusCo - Mustering Code</h1>
         <h3>
           with <span className="fw-bold text-primary">Mus</span>tafa{" "}
           <span className="fw-bold text-primary">Co</span>skuncelebi
         </h3>
         {!isLoggedIn ? (
-          <p className="lead mt-5 pb-4 fw-bold h3 fst-italic">
+          <p
+            className="lead mt-5 pb-4 fw-bold fst-italic"
+            style={{ fontSize: "2rem" }}
+          >
             Please use the navigation links to{" "}
-            <span className="text-success fw-bold">login</span>
+            <span className="text-success fw-bold">
+              <Link to="/login">login</Link>
+            </span>
             <span> </span>
             <span>or</span>
             <span> </span>
-            <span className="text-success fw-bold">register</span>.
+            <span className="text-success fw-bold">
+              <Link to="/register">register</Link>
+            </span>
+            .
           </p>
         ) : (
           <p className="lead mt-5 pb-4 fw-bold h3 fst-italic">
