@@ -6,10 +6,10 @@ MusCo (Mustering Code) is a MERN (MongoDB, Express, React, Node.js) stack authen
 
 ## Key Features
 
-    -   **User Registration and Authentication:** Secure user registration and login using MongoDB and Express, with password hashing for security.
-    -   **Persistent User Sessions:** Leveraging localStorage in React to maintain user sessions across page reloads.
-    -   **Responsive UI:** A responsive and visually appealing user interface built using React and Bootstrap.
-    -   **RESTful API Design:** A clean and modular backend API using Express, following REST principles.
+    - **User Registration and Authentication:** Secure user registration and login using MongoDB and Express, with password hashing for security.
+    - **Persistent User Sessions:** Leveraging localStorage in React to maintain user sessions across page reloads.
+    - **Responsive UI:** A responsive and visually appealing user interface built using React and Bootstrap.
+    - **RESTful API Design:** A clean and modular backend API using Express, following REST principles.
 
 ## Installation
 
