@@ -49,7 +49,7 @@ Use the following curl command to test the registration endpoint:
 
 ### Project Structure
 
-    __Backend:__
+    #### Backend:
 
     *   dbConnection.js: Manages the connection to MongoDB.
 
@@ -59,7 +59,7 @@ Use the following curl command to test the registration endpoint:
 
     *   userRoutes.js: Defines the API routes related to user operations.
 
-    __Frontend:__
+    #### Frontend:
 
     *   App.jsx: Main application component that manages routes and session state.
 
