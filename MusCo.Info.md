@@ -15,17 +15,17 @@ MusCo (Mustering Code) is a MERN (MongoDB, Express, React, Node.js) stack authen
 
 ### Client Setup
 
-    1.  **Initialize Vite:**
+    1. **Initialize Vite:**
     `npm init vite`
     Vite is a frontend build tool that is extremely fast and provides a great development experience.
-    2.  **Install Required Packages:**
+    2. **Install Required Packages:**
     `npm install bootstrap axios react-router-dom`
         -   **Bootstrap:** For responsive design and prebuilt UI components.
         -   **Axios:** For making HTTP requests from the frontend to the backend.
         -   **React Router DOM:** For managing navigation and routes in the React application.
-    3.  **Clean Up:**
-    -   Delete the default `App.css` and `index.css` files as they are not needed.
-    4.  **Add Bootstrap to App:**
+    3. **Clean Up:**
+        -   Delete the default `App.css` and `index.css` files as they are not needed.
+    4. **Add Bootstrap to App:**
         -   In `App.jsx`, add:
         `import 'bootstrap/dist/css/bootstrap.min.css';`
         -   This ensures that Bootstrap styles are available throughout the application.
@@ -65,18 +65,18 @@ This command sends a POST request to the `/register` endpoint with a JSON payloa
 
 ### Important Points in the Project
 
-    1.  **Database Connection (`dbConnection.js`):**
-    -   Establishes a connection to MongoDB using Mongoose. Proper error handling ensures the server doesn't crash on database connection failures.
-    2.  **User Model (`userModel.js`):**
+    1. **Database Connection (`dbConnection.js`):**
+        -   Establishes a connection to MongoDB using Mongoose. Proper error handling ensures the server doesn't crash on database connection failures.
+    2. **User Model (`userModel.js`):**
     -   Defines the schema for storing user information. The schema includes validation rules for email format and password strength.
-    3.  **User Authentication Logic (`userController.js`):**
-    -   Handles user registration, login, and session management. Passwords are hashed using `bcrypt` before being stored in the database.
-    4.  **Frontend State Management (`App.jsx`):**
-    -   React state and `localStorage` are used to manage user sessions, ensuring that the user remains logged in even after a page refresh.
-    5.  **Responsive UI (`Navbar.jsx`, `Dashboard.jsx`):**
-    -   The user interface is built using Bootstrap for responsiveness, ensuring a consistent experience across different screen sizes.
+    3. **User Authentication Logic (`userController.js`):**
+        -   Handles user registration, login, and session management. Passwords are hashed using `bcrypt` before being stored in the database.
+    4. **Frontend State Management (`App.jsx`):**
+        -   React state and `localStorage` are used to manage user sessions, ensuring that the user remains logged in even after a page refresh.
+    5. **Responsive UI (`Navbar.jsx`, `Dashboard.jsx`):**
+        -   The user interface is built using Bootstrap for responsiveness, ensuring a consistent experience across different screen sizes.
 
 ### Additional Notes
 
-    -   The project is modular, with separate files for different functionalities, making it easy to maintain and extend.
-    -   The entire codebase is available on [GitHub](https://github.com/yourusername/musco-auth).
+    -  The project is modular, with separate files for different functionalities, making it easy to maintain and extend.
+    -  The entire codebase is available on [GitHub](https://github.com/yourusername/musco-auth).
