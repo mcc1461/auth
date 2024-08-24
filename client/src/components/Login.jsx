@@ -48,6 +48,7 @@ function Login({ handleLogin }) {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                id="email"
               />
             </div>
             <div className="form-group mb-3">
@@ -59,6 +60,7 @@ function Login({ handleLogin }) {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                id="password"
               />
             </div>
             <button className="btn btn-primary w-100" type="submit">

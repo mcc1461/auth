@@ -70,6 +70,7 @@ function Register() {
                 placeholder="Enter your name"
                 value={username}
                 onChange={(e) => setName(e.target.value)}
+                id="username"
               />
             </div>
             <div className="form-group mb-3">
@@ -81,6 +82,7 @@ function Register() {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                id="email"
               />
             </div>
             <div className="form-group mb-3">
@@ -92,6 +94,7 @@ function Register() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                id="password"
               />
             </div>
             <button className="btn btn-primary w-100" type="submit">
