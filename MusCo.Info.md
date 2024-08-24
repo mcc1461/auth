@@ -1,4 +1,4 @@
-# AUTH Project Overview
+# AUTH Project Info
 
 ## Introduction
 
