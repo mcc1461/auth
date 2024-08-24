@@ -89,5 +89,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ### Author
 
-Developed by \MusCo (Mustafa Coskuncelebi)\.
+Developed by MusCo (Mustafa Coskuncelebi).
 The complete codebase is available on [GitHub](https://github.com/mcc1461/auth).
