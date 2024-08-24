@@ -1,4 +1,4 @@
-// dbConnection.js is a file that connects to the MongoDB database using mongoose.
+// dbConnection.js
 
 const mongoose = require("mongoose");
 
