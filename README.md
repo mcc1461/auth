@@ -51,27 +51,19 @@ Use the following curl command to test the registration endpoint:
 
 #### Backend
 
-    *   dbConnection.js: Manages the connection to MongoDB.
-
-    *   userModel.js: Defines the schema and validation for user data.
-
-    *   userController.js: Handles the business logic for user registration and login.
-
-    *   userRoutes.js: Defines the API routes related to user operations.
+- **dbConnection.js:** Manages the connection to MongoDB.
+- **userModel.js:** Defines the schema and validation for user data.
+- **userController.js:** Handles the business logic for user registration and login.
+- **userRoutes.js:** Defines the API routes related to user operations.
 
 #### Frontend
 
-    *   App.jsx: Main application component that manages routes and session state.
-
-    *   Navbar.jsx: Responsive navigation bar that changes based on the user's authentication status.
-
-    *   Login.jsx: Form for user login, including error handling.
-
-    *   Register.jsx: Form for user registration, including client-side validation.
-
-    *   Dashboard.jsx: Protected dashboard page, accessible only to logged-in users.
-
-    *   Home.jsx: Landing page with links to login and registration.
+- **App.jsx:** Main application component that manages routes and session state.
+- **Navbar.jsx:** Responsive navigation bar that changes based on the user's authentication status.
+- **Login.jsx:** Form for user login, including error handling.
+- **Register.jsx:** Form for user registration, including client-side validation.
+- **Dashboard.jsx:** Protected dashboard page, accessible only to logged-in users.
+- **Home.jsx:** Landing page with links to login and registration.
 
 ### References
 
