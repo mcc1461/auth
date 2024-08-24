@@ -44,7 +44,8 @@
 
 Use the following curl command to test the registration endpoint:
 
-`curl -X POST http://localhost:8002/api/users/register -H "Content-Type: application/json" -d '{"username":"John Doe","email":"john@example.com","password":"password123"}' `
+`curl -X POST http://localhost:8002/api/users/register -H "Content-Type: application/json" -d '{"username":"John Doe","email":"john@example.com","password":"password123"}'
+`
 
 ### Project Structure
 
@@ -88,5 +89,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ### Author
 
-Developed by \[MusCo (Mustafa Coskuncelebi)\].
-The complete codebase is available on [GitHub](https://github.com/yourusername/musco-auth).
+Developed by \MusCo (Mustafa Coskuncelebi)\.
+The complete codebase is available on [GitHub](https://github.com/mcc1461/auth).
