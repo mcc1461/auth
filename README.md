@@ -49,7 +49,8 @@ Use the following curl command to test the registration endpoint:
 
 ### Project Structure
 
-    * **Backend:**
+    *   **Backend:**
+
     *   dbConnection.js: Manages the connection to MongoDB.
 
     *   userModel.js: Defines the schema and validation for user data.
