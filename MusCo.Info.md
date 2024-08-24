@@ -72,4 +72,4 @@ This command sends a POST request to the `/register` endpoint with a JSON payloa
 
 ### Additional Notes
 
-- The project is modular, with separate files for different functionalities, making it easy to maintain and extend.- The entire codebase is available on [GitHub](https://github.com/yourusername/musco-auth).
+- The project is modular, with separate files for different functionalities, making it easy to maintain and extend.- The entire codebase is available on [GitHub](https://github.com/mcc1461/auth).
