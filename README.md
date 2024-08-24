@@ -77,8 +77,8 @@ Use the following curl command to test the registration endpoint:
 
 For more detailed information on the technologies used in this project, check out the following resources:
 
-    1.  [MongoDB Documentation](https://docs.mongodb.com/)
-    2.  [Express.js Documentation](https://expressjs.com/)
+    1.  ![MongoDB Documentation](https://docs.mongodb.com/)
+    2.  ![Express.js Documentation](https://expressjs.com/)
     3.  React.js Documentation
     4.  Node.js Documentation
     5.  Bootstrap Documentation
