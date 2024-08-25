@@ -46,7 +46,9 @@ function Register() {
 
     try {
       setError(""); // Clear any previous errors
-      await axios.post("http://127.0.0.1:8002/api/users/register", newUser);
+      await axios.post("http://127.0.0.1:8002/api/users/register", newUser, {
+        withCredentials: true, // Ensures cookies and authentication headers are sent
+      });
 
       setSuccess(`"${username}" registered successfully!`); // Set success message
       setName("");

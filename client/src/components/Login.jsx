@@ -14,7 +14,9 @@ function Login({ handleLogin }) {
     const user = { email, password };
 
     try {
-      await axios.post("http://127.0.0.1:8002/api/users/login", user);
+      await axios.post("http://127.0.0.1:8002/api/users/login", user, {
+        withCredentials: true, // Ensures cookies and authentication headers are sent
+      });
       handleLogin();
       setEmail("");
       setPassword("");
