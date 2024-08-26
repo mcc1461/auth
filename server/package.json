@@ -15,7 +15,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.0",
-    "punycode": "^2.3.1"
+    "punycode": "^2.3.1",
+    "cloudinary": "^1.26.0"
   },
   "keywords": [],
   "author": "Mustafa COSKUNCELEBI",
