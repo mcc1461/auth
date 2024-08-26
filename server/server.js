@@ -26,7 +26,6 @@ app.use(cookieParser()); // Cookie parser middleware
 app.use(
   cors({
     origin: function (origin, callback) {
-      console.log("Request origin:", origin); // Log the incoming origin
       if (!origin) {
         callback(null, true);
         return;
