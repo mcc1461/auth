@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MusCo from "../assets/MusCo.png";
 
-const API_URL = process.env.API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Dashboard = ({ welcomeMessage }) => {
   const [user, setUser] = useState(null);

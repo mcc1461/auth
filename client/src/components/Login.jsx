@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+console.log("API_URL:", API_URL);
+console.log("Environment Variables:", import.meta.env);
+
 function Login({ handleLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

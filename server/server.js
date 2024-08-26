@@ -2,9 +2,9 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
 const cors = require("cors");
+const punycode = require("punycode");
 const dotenv = require("dotenv");
 dotenv.config();
-const punycode = require("punycode");
 const dbConnection = require("./config/dbConnection");
 const userRoutes = require("./routes/userRoutes");
 
