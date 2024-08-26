@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
 const cors = require("cors");
-const punycode = require("punycode");
+const punycode = require("punycode/");
 const dotenv = require("dotenv");
 dotenv.config();
 const dbConnection = require("./config/dbConnection");
