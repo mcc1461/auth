@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MusCo from "../assets/MusCo.png";
 
+const API_URL = process.env.API_URL;
+
 const Dashboard = ({ welcomeMessage }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
@@ -19,7 +21,7 @@ const Dashboard = ({ welcomeMessage }) => {
 
     // Optionally, you can re-validate the token by making an API request to verify the user
     axios
-      .get("http://127.0.0.1:8002/api/users/me", {
+      .get(`${API_URL}/api/users/me`, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the request header
         },

@@ -14,13 +14,9 @@ function Login({ handleLogin }) {
     const user = { email, password };
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8002/api/users/login",
-        user,
-        {
-          withCredentials: true, // Ensures cookies and authentication headers are sent
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/users/login`, user, {
+        withCredentials: true, // Ensures cookies and authentication headers are sent
+      });
       const { token, user: loggedInUser } = response.data;
 
       if (token) {
