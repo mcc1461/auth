@@ -14,14 +14,26 @@ function Login({ handleLogin }) {
     const user = { email, password };
 
     try {
-      await axios.post("http://127.0.0.1:8002/api/users/login", user, {
-        withCredentials: true, // Ensures cookies and authentication headers are sent
-      });
-      handleLogin();
-      setEmail("");
-      setPassword("");
-      setError("");
-      navigate("/dashboard");
+      const response = await axios.post(
+        "http://127.0.0.1:8002/api/users/login",
+        user,
+        {
+          withCredentials: true, // Ensures cookies and authentication headers are sent
+        }
+      );
+      const { token, user: loggedInUser } = response.data;
+
+      if (token) {
+        localStorage.setItem("token", token); // Store the token in localStorage
+        localStorage.setItem("user", JSON.stringify(loggedInUser)); // Store the user object in localStorage
+        handleLogin();
+        setEmail("");
+        setPassword("");
+        setError("");
+        navigate("/dashboard");
+      } else {
+        setError("Login failed. No token provided.");
+      }
     } catch (error) {
       console.error("There was an error logging in!", error);
       setError(

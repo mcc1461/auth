@@ -27,7 +27,10 @@ app.use(
   cors({
     origin: function (origin, callback) {
       console.log("Request origin:", origin); // Log the incoming origin
-
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
       if (allowedOrigins.includes(origin) || !origin) {
         callback(null, true);
       } else {
