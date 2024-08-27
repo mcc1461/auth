@@ -15,6 +15,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
   "https://authfe.vercel.app/",
+  "https://authfe-j5x5oydb2-mcc-projects-777.vercel.app/",
 ];
 
 // Connect to MongoDB
