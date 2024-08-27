@@ -1,24 +1,26 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const app = express();
 const cors = require("cors");
-const punycode = require("punycode/");
 const dotenv = require("dotenv");
-dotenv.config();
 const dbConnection = require("./config/dbConnection");
 const userRoutes = require("./routes/userRoutes");
 
+dotenv.config();
+
 // Connect to MongoDB
 dbConnection();
+
+// Initialize Express
+const app = express();
 
 // Middleware
 app.use(express.json()); // Body parser middleware
 app.use(cookieParser()); // Cookie parser middleware
 
-// CORS
+// CORS Configuration
 app.use(
   cors({
-    origin: "https://authfe.vercel.app/",
+    origin: "https://authfe.vercel.app", // Removed the trailing slash
     credentials: true,
   })
 );
@@ -36,9 +38,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong", error: err.message });
 });
 
+// Start the server
 const PORT = process.env.PORT || 8002;
-const HOST = process.env.HOST || "http://127.0.0.1";
-
 app.listen(PORT, () => {
-  console.log(`Server running on ${HOST}:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
