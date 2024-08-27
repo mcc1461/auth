@@ -19,9 +19,11 @@ function Login({ handleLogin }) {
     const user = { email, password };
 
     try {
-      const response = await axios.post(`${API_URL}/api/users/login`, user, {
+      // Ensure the URL is correctly formed without double slashes
+      const response = await axios.post(`${API_URL}api/users/login`, user, {
         withCredentials: true, // Ensures cookies and authentication headers are sent
       });
+
       const { token, user: loggedInUser } = response.data;
 
       if (token) {
@@ -36,10 +38,27 @@ function Login({ handleLogin }) {
         setError("Login failed. No token provided.");
       }
     } catch (error) {
-      console.error("There was an error logging in!", error);
-      setError(
-        error.response?.data?.message || "Error logging in. Please try again."
-      );
+      if (error.response) {
+        // Server responded with a status other than 200 range
+        console.error(
+          "Response error:",
+          error.response.status,
+          error.response.data
+        );
+        setError(
+          error.response.data.message || "Error logging in. Please try again."
+        );
+      } else if (error.request) {
+        // Request was made but no response was received
+        console.error("Request error:", error.request);
+        setError(
+          "No response from server. Please check your network connection."
+        );
+      } else {
+        // Something else caused the error
+        console.error("Error:", error.message);
+        setError("An error occurred. Please try again.");
+      }
     }
   };
 
