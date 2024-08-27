@@ -18,7 +18,7 @@ app.use(cookieParser()); // Cookie parser middleware
 // CORS
 app.use(
   cors({
-    origin: "*",
+    origin: "https://authfe.vercel.app/",
     credentials: true,
   })
 );
