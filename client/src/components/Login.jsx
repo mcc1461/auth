@@ -20,7 +20,7 @@ function Login({ handleLogin }) {
 
     try {
       // Ensure the URL is correctly formed without double slashes
-      const response = await axios.post(`${API_URL}api/users/login`, user, {
+      const response = await axios.post(`${API_URL}/api/users/login`, user, {
         withCredentials: true, // Ensures cookies and authentication headers are sent
       });
 
