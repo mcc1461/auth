@@ -8,17 +8,6 @@ dotenv.config();
 const dbConnection = require("./config/dbConnection");
 const userRoutes = require("./routes/userRoutes");
 
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
-  "http://localhost:5173",
-  "http://127.0.0.1:5173",
-  "https://authfe.vercel.app/",
-  "https://authfe-j5x5oydb2-mcc-projects-777.vercel.app/",
-  "*", // Allow any origin
-];
-
 // Connect to MongoDB
 dbConnection();
 
@@ -29,17 +18,7 @@ app.use(cookieParser()); // Cookie parser middleware
 // CORS
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) {
-        callback(null, true);
-        return;
-      }
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "*",
     credentials: true,
   })
 );
