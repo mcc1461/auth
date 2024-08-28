@@ -46,15 +46,12 @@ const Dashboard = ({ welcomeMessage }) => {
           style={{ maxWidth: "50%", height: "auto", marginTop: "10%" }}
         />
       </div>
-      <h1
-        className="m-5 pt-5 fw-bolder text-dark text-center"
-        style={{ fontSize: "4rem" }} // Increased font size
-      >
+      <h1 className="m-5 pt-5 fw-bolder text-dark text-center dashboard-title">
         DASHBOARD
       </h1>
       <h1
         className="h3 mb-3 fw-bold text-primary text-center"
-        style={{ fontSize: "3rem" }} // Increased font size
+        style={{ fontSize: "5vw" }} // Increased font size
       >
         MusCo
       </h1>
