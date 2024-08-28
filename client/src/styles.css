@@ -18,17 +18,17 @@ body {
   font-style: italic;
 }
 .dashboard-title {
-  font-size: 15vw; /* Default font size relative to viewport width */
+  font-size: 9vw; /* Default font size relative to viewport width */
 }
 
 @media (max-width: 768px) {
   .dashboard-title {
-    font-size: 30vw; /* Adjusted for tablet screens */
+    font-size: 11vw; /* Adjusted for tablet screens */
   }
 }
 
 @media (max-width: 576px) {
   .dashboard-title {
-    font-size: 70vw; /* Adjusted for mobile screens */
+    font-size: 13vw; /* Adjusted for mobile screens */
   }
 }
